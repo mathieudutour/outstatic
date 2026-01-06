@@ -1,5 +1,11 @@
 {
   "title": "Home",
   "type": "object",
-  "properties": {}
+  "properties": {
+    "description": {
+      "fieldType": "String",
+      "dataType": "string",
+      "title": "description"
+    }
+  }
 }
