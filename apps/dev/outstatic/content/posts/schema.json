@@ -22,6 +22,11 @@
           "label": "Outstatic"
         }
       ]
+    },
+    "description": {
+      "fieldType": "String",
+      "dataType": "string",
+      "title": "description"
     }
   }
 }
