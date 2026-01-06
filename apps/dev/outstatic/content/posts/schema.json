@@ -3,23 +3,23 @@
   "type": "object",
   "properties": {
     "tags": {
-      "required": false,
+      "required": true,
       "description": "Add tags to the post",
       "fieldType": "Tags",
       "dataType": "array",
       "title": "Tags",
       "values": [
         {
-          "value": "nextJs",
-          "label": "NextJs"
+          "label": "NextJs",
+          "value": "nextJs"
         },
         {
-          "value": "gitHub",
-          "label": "GitHub"
+          "label": "GitHub",
+          "value": "gitHub"
         },
         {
-          "value": "outstatic",
-          "label": "Outstatic"
+          "label": "Outstatic",
+          "value": "outstatic"
         }
       ]
     },
