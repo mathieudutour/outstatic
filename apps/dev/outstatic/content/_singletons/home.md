@@ -1,11 +1,12 @@
 ---
 title: "Home"
 status: "published"
-publishedAt: "2026-01-05T16:43:40.676Z"
 author:
-  name: "Mathieu Dutour"
-  picture: "https://avatars.githubusercontent.com/u/3254314?v=4"
+  name: "Andre Vitorio"
+  picture: ""
 slug: "home"
+description: "This is my blog."
+publishedAt: "2022-03-17T05:35:07.322Z"
 ---
 
 ## Hello!
