@@ -27,6 +27,11 @@
       "fieldType": "String",
       "dataType": "string",
       "title": "description"
+    },
+    "coverImage": {
+      "fieldType": "Image",
+      "dataType": "image",
+      "title": "coverImage"
     }
   }
 }
