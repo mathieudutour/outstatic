@@ -1,6 +1,6 @@
 {
-  "commit": "d164819e9dad435410707d379bdda074f40eda64",
-  "generated": "2024-11-11T14:42:41.780Z",
+  "commit": "7caaf2a3580959b9c939e6a2db51af5270eddd7b",
+  "generated": "2026-01-06T07:43:58.743Z",
   "metadata": [
     {
       "__outstatic": {
@@ -197,6 +197,22 @@
       "tags": [
       ],
       "title": "Test Post"
+    },
+    {
+      "__outstatic": {
+        "commit": "7caaf2a3580959b9c939e6a2db51af5270eddd7b",
+        "hash": "260627128",
+        "path": "/outstatic/content/_singletons/home.md"
+      },
+      "author": {
+        "name": "Mathieu Dutour",
+        "picture": "https://avatars.githubusercontent.com/u/3254314?v=4"
+      },
+      "collection": "_singletons",
+      "publishedAt": "2026-01-05T16:43:40.676Z",
+      "slug": "home",
+      "status": "published",
+      "title": "Home"
     }
   ]
 }
