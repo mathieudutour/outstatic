@@ -102,7 +102,7 @@ export const NodeSelector = ({ open, onOpenChange }: NodeSelectorProps) => {
   }
 
   return (
-    <Popover modal={true} open={open} onOpenChange={onOpenChange}>
+    <Popover open={open} onOpenChange={onOpenChange}>
       <PopoverTrigger asChild className="gap-2">
         <EditorBubbleButton name={activeItem.name}>
           <span className="whitespace-nowrap text-sm">{activeItem.name}</span>

@@ -49,7 +49,7 @@ export const LinkSelector = ({ open, onOpenChange }: LinkSelectorProps) => {
   if (!editor) return null
 
   return (
-    <Popover modal={true} open={open} onOpenChange={onOpenChange}>
+    <Popover open={open} onOpenChange={onOpenChange}>
       <PopoverTrigger asChild className="gap-2">
         <EditorBubbleButton name="link">
           <p className="text-base">↗</p>
