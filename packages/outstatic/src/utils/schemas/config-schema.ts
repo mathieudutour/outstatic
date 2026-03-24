@@ -15,5 +15,6 @@ export const ConfigSchema = z.object({
       message: "Path must end with '/'"
     })
     .optional(),
-  mdExtension: z.union([z.literal('md'), z.literal('mdx')]).optional()
+  mdExtension: z.union([z.literal('md'), z.literal('mdx')]).optional(),
+  enableEmbeds: z.boolean().optional()
 })

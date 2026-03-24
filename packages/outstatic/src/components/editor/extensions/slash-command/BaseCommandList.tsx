@@ -21,12 +21,14 @@ export const BaseCommandList = ({
   items,
   command,
   setImageMenu,
+  setEmbedMenu,
   editor,
   range,
   onShowUpgradeDialog
 }: {
   items: CommandItemProps[]
   setImageMenu: (value: boolean) => void
+  setEmbedMenu: (value: boolean) => void
   command: any
   editor: Editor
   range: Range
@@ -98,6 +100,8 @@ export const BaseCommandList = ({
           }
         } else if (item.title === 'Image') {
           setImageMenu(true)
+        } else if (item.title === 'Embed') {
+          setEmbedMenu(true)
         } else {
           command(item)
         }
@@ -115,7 +119,8 @@ export const BaseCommandList = ({
       onShowUpgradeDialog,
       dashboardRoute,
       projectInfo,
-      setImageMenu
+      setImageMenu,
+      setEmbedMenu
     ]
   )
 

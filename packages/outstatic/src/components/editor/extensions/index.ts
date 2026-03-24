@@ -19,16 +19,18 @@ import { ToggleClass } from '@/components/editor/extensions/toggle-class'
 import { Mathematics } from '@/components/editor/extensions/mathematics'
 import LinkParser from '@/components/editor/extensions/link-parser'
 import { AIHighlight } from '@/components/editor/extensions/ai-higlight'
+import { Embed } from '@/components/editor/extensions/embed'
 import { cn } from '@/utils/ui'
 
 export type TiptapExtensionsOptions = {
   onShowUpgradeDialog: UpgradeDialogHandler
+  enableEmbeds?: boolean
 }
 
 export const getTiptapExtensions = (options: TiptapExtensionsOptions) =>
   [
     Markdown.configure({
-      html: false,
+      html: options.enableEmbeds ?? false,
       linkify: false,
       transformPastedText: true
     }),
@@ -97,7 +99,8 @@ export const getTiptapExtensions = (options: TiptapExtensionsOptions) =>
       }
     }),
     createSlashCommand({
-      onShowUpgradeDialog: options.onShowUpgradeDialog
+      onShowUpgradeDialog: options.onShowUpgradeDialog,
+      enableEmbeds: options.enableEmbeds
     }),
     TiptapUnderline,
     Highlight.configure({
@@ -144,5 +147,6 @@ export const getTiptapExtensions = (options: TiptapExtensionsOptions) =>
     }),
     TableRow,
     TableHeader,
-    TableCell
+    TableCell,
+    ...(options.enableEmbeds ? [Embed] : [])
   ] as AnyExtension[] // TODO: fix this type

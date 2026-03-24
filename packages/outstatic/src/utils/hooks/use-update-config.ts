@@ -84,7 +84,8 @@ export function useUpdateConfig({ setLoading }: SubmitDocumentProps) {
           success: () => {
             setData({
               repoMediaPath: updatedConfig.repoMediaPath,
-              publicMediaPath: updatedConfig.publicMediaPath
+              publicMediaPath: updatedConfig.publicMediaPath,
+              enableEmbeds: updatedConfig.enableEmbeds
             })
 
             if (callbackFunction) {

@@ -4,6 +4,7 @@ import Suggestion from '@tiptap/suggestion'
 import { ReactNode, useState } from 'react'
 import tippy, { type Instance as TippyInstance } from 'tippy.js'
 import { BaseCommandList } from '@/components/editor/extensions/slash-command/BaseCommandList'
+import { EmbedCommandList } from '@/components/editor/extensions/slash-command/EmbedCommandList'
 import ImageCommandList from '@/components/editor/extensions/slash-command/ImageCommandList'
 import { getSuggestionItems } from '@/components/editor/extensions/slash-command/get-suggestion-items'
 import type { UpgradeDialogHandler } from '@/components/ui/outstatic/upgrade-dialog-context'
@@ -15,6 +16,7 @@ export type CommandItemProps = {
   command?: ({ editor, range }: CommandProps) => void
   searchTerms: string[]
   subItems?: CommandItemProps[]
+  requiresEmbed?: boolean
 }
 
 export type CommandProps = {
@@ -84,6 +86,7 @@ const CommandList = ({
   onShowUpgradeDialog: UpgradeDialogHandler
 }) => {
   const [imageMenu, setImageMenu] = useState(false)
+  const [embedMenu, setEmbedMenu] = useState(false)
 
   return items.length > 0 ? (
     imageMenu ? (
@@ -92,11 +95,18 @@ const CommandList = ({
         setImageMenu={setImageMenu}
         range={range}
       />
+    ) : embedMenu ? (
+      <EmbedCommandList
+        editor={editor}
+        setEmbedMenu={setEmbedMenu}
+        range={range}
+      />
     ) : (
       <BaseCommandList
         items={items}
         command={command}
         setImageMenu={setImageMenu}
+        setEmbedMenu={setEmbedMenu}
         editor={editor}
         range={range}
         onShowUpgradeDialog={onShowUpgradeDialog}
@@ -174,13 +184,16 @@ const renderItems = (onShowUpgradeDialog: UpgradeDialogHandler) => {
 }
 
 export const createSlashCommand = ({
-  onShowUpgradeDialog
+  onShowUpgradeDialog,
+  enableEmbeds
 }: {
   onShowUpgradeDialog: UpgradeDialogHandler
+  enableEmbeds?: boolean
 }) =>
   Command.configure({
     suggestion: {
-      items: getSuggestionItems,
+      items: (props: { query: string }) =>
+        getSuggestionItems({ ...props, enableEmbeds }),
       render: () => renderItems(onShowUpgradeDialog)
     }
   })

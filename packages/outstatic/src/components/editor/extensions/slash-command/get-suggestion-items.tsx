@@ -9,7 +9,8 @@ import {
   ListOrdered,
   TableIcon,
   Text,
-  TextQuote
+  TextQuote,
+  Video
 } from 'lucide-react'
 import {
   CommandItemProps,
@@ -137,6 +138,13 @@ const items = [
         .insertTable({ rows: 3, cols: 3, withHeaderRow: true })
         .run()
     }
+  },
+  {
+    title: 'Embed',
+    description: 'Embed a YouTube video.',
+    searchTerms: ['video', 'youtube', 'embed', 'iframe'],
+    icon: <Video size={18} />,
+    requiresEmbed: true
   }
 ] as CommandItemProps[]
 
@@ -159,13 +167,20 @@ const filterItems = (
   })
 }
 
-export const getSuggestionItems = (props: { query: string }) => {
-  const { query } = props
+export const getSuggestionItems = (props: {
+  query: string
+  enableEmbeds?: boolean
+}) => {
+  const { query, enableEmbeds } = props
+  const availableItems = enableEmbeds
+    ? items
+    : items.filter((item) => !item.requiresEmbed)
+
   if (typeof query !== 'string' || query.length === 0) {
-    return items
+    return availableItems
   }
 
   const search = query.toLowerCase()
-  const filteredItems = filterItems(items, search)
+  const filteredItems = filterItems(availableItems, search)
   return filteredItems
 }

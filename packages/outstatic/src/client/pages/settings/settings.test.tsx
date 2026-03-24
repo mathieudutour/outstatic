@@ -107,6 +107,9 @@ describe('Settings page', () => {
     expect(
       screen.getByText('Documents', { selector: '[data-slot="card-title"]' })
     ).toBeInTheDocument()
+    expect(
+      screen.getByText('Embeds', { selector: '[data-slot="card-title"]' })
+    ).toBeInTheDocument()
     expect(screen.getByTestId('github-repo-search')).toBeInTheDocument()
     expect(screen.getByTestId('media-settings')).toBeInTheDocument()
   })
@@ -152,7 +155,7 @@ describe('Settings page', () => {
       </StrictMode>
     )
 
-    expect(screen.getByRole('combobox')).toHaveTextContent('Markdown (.md)')
+    expect(screen.getAllByRole('combobox')[0]).toHaveTextContent('Markdown (.md)')
     expect(hasMaximumUpdateDepthError(consoleErrorSpy.mock.calls)).toBe(false)
 
     consoleErrorSpy.mockRestore()

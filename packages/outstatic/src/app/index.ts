@@ -35,6 +35,7 @@ export type OutstaticData = {
   githubGql: string
   publicMediaPath: string
   repoMediaPath: string
+  enableEmbeds?: boolean
   isPro: boolean
   projectInfo?: {
     projectId: string
