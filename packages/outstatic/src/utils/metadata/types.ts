@@ -64,4 +64,5 @@ export type ConfigType = {
   publicMediaPath?: string
   repoMediaPath?: string
   mdExtension?: MDExtensions
+  enableEmbeds?: boolean
 }

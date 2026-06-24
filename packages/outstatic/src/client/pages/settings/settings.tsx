@@ -6,6 +6,7 @@ import { useOutstatic } from '@/utils/hooks/use-outstatic'
 import { useState } from 'react'
 import { MediaSettings } from './_components/media-settings'
 import { DocumentFormatSettings } from './_components/document-format-settings'
+import { EmbedSettings } from './_components/embed-settings'
 import { useRebuildMetadata } from '@/utils/hooks/use-rebuild-metadata'
 import {
   Card,
@@ -97,6 +98,17 @@ export default function Settings() {
           </CardHeader>
           <CardContent>
             <DocumentFormatSettings />
+          </CardContent>
+        </Card>
+        <Card className="mb-8 max-w-2xl">
+          <CardHeader>
+            <CardTitle>Embeds</CardTitle>
+            <CardDescription>
+              Configure embed support in the editor.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <EmbedSettings />
           </CardContent>
         </Card>
 

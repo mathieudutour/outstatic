@@ -13,7 +13,8 @@ import { stringifyError } from '@/utils/errors/stringify-error'
 import { useUpgradeDialog } from '@/components/ui/outstatic/upgrade-dialog-context'
 
 export const useTipTap = ({ ...rhfMethods }) => {
-  const { hasAIProviderKey, isPro, basePath } = useOutstatic()
+  const outstaticData = useOutstatic()
+  const { hasAIProviderKey, isPro, basePath } = outstaticData
   const { openUpgradeDialog } = useUpgradeDialog()
   const { setValue } = rhfMethods
 
@@ -196,7 +197,8 @@ export const useTipTap = ({ ...rhfMethods }) => {
   const editor = useEditor({
     extensions: [
       ...getTiptapExtensions({
-        onShowUpgradeDialog: openUpgradeDialog
+        onShowUpgradeDialog: openUpgradeDialog,
+        enableEmbeds: !!outstaticData.enableEmbeds
       }),
       Placeholder.configure({
         placeholder: ({ editor, node }) => {

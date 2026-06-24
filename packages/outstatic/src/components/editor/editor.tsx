@@ -3,6 +3,7 @@ import { Editor, EditorContent } from '@tiptap/react'
 import { useFormContext } from 'react-hook-form'
 import { TableMenu } from './menu/table-menu'
 import ImageMenu from './menu/image-menu'
+import EmbedMenu from './menu/embed-menu'
 
 interface MDEditorProps {
   editor: Editor
@@ -22,6 +23,10 @@ export const MDEditor = ({ id, editor }: MDEditorProps) => {
       {editor && <EditorMenu editor={editor} />}
       {editor && <TableMenu editor={editor} />}
       {editor && <ImageMenu editor={editor} />}
+      {editor &&
+        editor.extensionManager.extensions.some((e) => e.name === 'embed') && (
+          <EmbedMenu editor={editor} />
+        )}
       <EditorContent
         name="content"
         className="prose prose-base dark:prose-invert"
